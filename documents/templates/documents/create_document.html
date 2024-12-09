@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create Document{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Create Document</h1>
+
+    <!-- Display success or error messages -->
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Create Document Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" class="p-4 border rounded">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="text-center">Document Details</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="d-grid gap-2 mt-3">
+                    <button type="submit" id="create-button" class="btn btn-success">
+                        <span id="create-button-text">Create</span>
+                        <span id="create-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for button feedback -->
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const createButton = document.getElementById('create-button');
+    const buttonText = document.getElementById('create-button-text');
+    const spinner = document.getElementById('create-spinner');
+
+    // Show loading spinner and disable button
+    createButton.disabled = true;
+    buttonText.textContent = 'Creating...';
+    spinner.classList.remove('d-none');
+});
+</script>
+{% endblock %}

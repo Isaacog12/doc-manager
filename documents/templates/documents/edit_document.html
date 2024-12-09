@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Document{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Edit Document</h1>
+
+    <!-- Display success or error messages -->
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Edit Document Form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" class="p-4 border rounded">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="text-center">Edit Document Details</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="d-grid gap-2 mt-3">
+                    <button type="submit" id="save-button" class="btn btn-primary">
+                        <span id="save-button-text">Save Changes</span>
+                        <span id="save-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for button feedback -->
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+    const saveButton = document.getElementById('save-button');
+    const buttonText = document.getElementById('save-button-text');
+    const spinner = document.getElementById('save-spinner');
+
+    // Show loading spinner and disable button
+    saveButton.disabled = true;
+    buttonText.textContent = 'Saving...';
+    spinner.classList.remove('d-none');
+});
+</script>
+{% endblock %}

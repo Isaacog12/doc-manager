@@ -1,0 +1,188 @@
+/* Reset and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #2a004f; /* Dark purple background */
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffccff;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #1e003a; /* Deep purple */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a.active {
+    background-color: #6a00d4; /* Highlighted button */
+    transform: scale(1.1);
+}
+
+.navbar a:hover {
+    background-color: #5600a6;
+    transform: scale(1.05);
+}
+
+/* Container Styles */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Document List Styles */
+.document-list {
+    margin: 20px 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.document-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.document-item:hover {
+    background-color: #ecebff; /* Light purple */
+    transform: scale(1.02);
+}
+
+.document-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons .button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.action-buttons .button.download {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.action-buttons .button.edit {
+    background-color: #2196F3; /* Blue */
+    color: white;
+}
+
+.action-buttons .button.delete {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.action-buttons .button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* File List Styles */
+.file-list {
+    margin: 20px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.file-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.file-list li:hover {
+    background-color: #e6eaff;
+    transform: scale(1.02);
+}
+
+.file-list .file-name {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* File Actions */
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.file-actions button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.file-actions button:hover {
+    background-color: #004d99;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    background-color: #1e003a; /* Deep purple */
+    color: white;
+    font-size: 14px;
+}

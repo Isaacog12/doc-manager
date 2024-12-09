@@ -1,0 +1,20 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Document Management{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'documents/css/styles.css' %}"> 
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'document_list' %}" class="{% if request.resolver_match.url_name == 'document_list' %}active{% endif %}">Home</a>
+        <a href="{% url 'upload_document' %}" class="button">Upload Document</a>
+        <a href="{% url 'create_document' %}" class="button">Create Document</a>
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

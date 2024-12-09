@@ -1,0 +1,30 @@
+<!-- templates/documents/document_list.html -->
+{% extends 'base.html' %}
+{% load document_tags %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Document List</h1>
+{% if documents %}
+    <ul class="document-list">
+        {% for document in documents %}
+            <li class="document-item">
+                <span class="document-title">{{ document.title }}</span>
+                <div class="action-buttons">
+                    <a href="{% url 'download_document' document.id %}" class="button download">Download</a>
+                    <a href="{% url 'delete_document' document.id %}" class="button delete">Delete</a>
+                    {% if document.file.name|is_txt_file %}
+                        <a href="{% url 'edit_document' document.id %}" class="button edit">Edit</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="no-documents">No documents available. Create or upload your documents.</p>
+{% endif %}
+{% endblock %}
+
+
+    
